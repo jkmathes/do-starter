@@ -1,3 +1,3 @@
 output "ip" {
-  value = "${digitalocean_droplet.test.public_ip}"
+  value = "${digitalocean_droplet.test.ipv4_address}"
 }
