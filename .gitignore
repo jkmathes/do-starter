@@ -1,3 +1,8 @@
 # Compiled files
 *.tfstate
 *.tfstate.backup
+do_rsa
+do_rsa.pub
+deploy_passwd
+deploy_rsa
+deploy_rsa.pub
