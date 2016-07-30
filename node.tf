@@ -66,8 +66,8 @@ resource "digitalocean_droplet" "test" {
 
       # Add automated security updates
       "apt-get install -y unattended-upgrades",
-      "echo \"${file("periodic.gold")}\" > /etc/apt/apt.conf.d/10periodic",
-      "echo \"${file("unattended.gold")}\" > /etc/apt/apt.conf.d/50unattended-upgrades",
+      "echo \"${file("gold/periodic.gold")}\" > /etc/apt/apt.conf.d/10periodic",
+      "echo \"${file("gold/unattended.gold")}\" > /etc/apt/apt.conf.d/50unattended-upgrades",
 
       "apt-get install -y fail2ban",
 
