@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -f ./do_rsa ]; then
   echo "Creating DO key"
   ssh-keygen -b 2048 -t rsa -f ./do_rsa -q -N ""
