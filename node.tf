@@ -1,24 +1,26 @@
 resource "digitalocean_ssh_key" "default" {
-  name = "TF SSH Key"
+  name       = "TF SSH Key"
   public_key = "${file("${var.public_key}")}"
 }
 
 resource "digitalocean_droplet" "test" {
-  image = "ubuntu-14-04-x64"
-  name = "test"
-  region = "nyc1"
-  size = "512mb"
+  image              = "ubuntu-18-04-x64"
+  name               = "test"
+  region             = "nyc1"
+  size               = "512mb"
   private_networking = true
   ssh_keys = [
     "${digitalocean_ssh_key.default.fingerprint}"
   ]
-  connection {
-    user = "root"
-    type = "ssh"
-    key_file = "${var.private_key}"
-    timeout = "2m"
-  }
+
   provisioner "remote-exec" {
+    connection {
+      host     = "${digitalocean_droplet.test.ipv4_address}"
+      user     = "root"
+      type     = "ssh"
+      private_key = "${file("${var.private_key}")}"
+      timeout  = "2m"
+    }
     inline = [
 
       # Update software

@@ -6,3 +6,4 @@ do_rsa.pub
 deploy_passwd
 deploy_rsa
 deploy_rsa.pub
+.terraform
